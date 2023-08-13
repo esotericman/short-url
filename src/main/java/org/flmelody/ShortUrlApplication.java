@@ -15,14 +15,27 @@
 package org.flmelody;
 
 import org.flmelody.core.Windward;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author esotericman
  */
 public class ShortUrlApplication {
+  private static final Logger LOGGER = LoggerFactory.getLogger(ShortUrlApplication.class);
+
   public static void main(String[] args) {
-    Windward windward = Windward.setup();
-    System.out.println("Hello, Native World!");
+    int port = 8080;
+    for (int i = 0; i < args.length; i++) {
+      if (args[i].equals("-p") && args.length > i + 1) {
+        try {
+          port = Integer.parseInt(args[i + 1]);
+        } catch (Exception exception) {
+          LOGGER.error("Please input correct port!");
+        }
+      }
+    }
+    Windward windward = Windward.setup(port);
     windward.get("/url", () -> "Hello!");
     windward.run();
   }
