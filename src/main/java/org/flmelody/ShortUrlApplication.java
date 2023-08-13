@@ -14,9 +14,16 @@
 
 package org.flmelody;
 
+import org.flmelody.core.Windward;
+
 /**
  * @author esotericman
  */
-public class Main {
-  public static void main(String[] args) {}
+public class ShortUrlApplication {
+  public static void main(String[] args) {
+    Windward windward = Windward.setup();
+    System.out.println("Hello, Native World!");
+    windward.get("/url", () -> "Hello!");
+    windward.run();
+  }
 }
