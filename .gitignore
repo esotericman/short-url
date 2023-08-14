@@ -33,3 +33,5 @@ build/
 
 ### Mac OS ###
 .DS_Store
+### Maven Plugin ###
+/dependency-reduced-pom.xml
