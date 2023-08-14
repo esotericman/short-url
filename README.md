@@ -3,7 +3,7 @@
 package binary file
 
 ```shell
- mvn -Pnative package
+mvn -Pnative package
 ```
 
 compress binary file
