@@ -15,9 +15,9 @@
         <maven.compiler.source>17</maven.compiler.source>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.jupiter.version>5.8.1</junit.jupiter.version>
-        <log4j.version>2.20.0</log4j.version>
         <jdbi3.version>3.40.0</jdbi3.version>
         <slf4j.version>2.0.7</slf4j.version>
+        <logback-classic.version>1.4.11</logback-classic.version>
         <HikariCP.version>5.0.1</HikariCP.version>
         <mysql-connector-j.version>8.1.0</mysql-connector-j.version>
         <jedis.version>4.4.3</jedis.version>
@@ -80,21 +80,11 @@
             <groupId>org.jdbi</groupId>
             <artifactId>jdbi3-generator</artifactId>
         </dependency>
-        <!--        <dependency>
-                    <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-api</artifactId>
-                    <version>${log4j.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-core</artifactId>
-                    <version>${log4j.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-slf4j2-impl</artifactId>
-                    <version>${log4j.version}</version>
-                </dependency>-->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback-classic.version}</version>
+        </dependency>
     </dependencies>
 
     <profiles>
@@ -127,6 +117,7 @@
                             <fallback>false</fallback>
                             <imageName>${imageName}</imageName>
                             <buildArgs>
+                                <arg>--initialize-at-build-time=ch.qos.logback</arg>
                                 <arg>--initialize-at-build-time=org.slf4j.LoggerFactory</arg>
                             </buildArgs>
                         </configuration>
