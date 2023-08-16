@@ -15,6 +15,7 @@
 package org.flmelody;
 
 import org.flmelody.core.Windward;
+import org.flmelody.router.Routers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,7 +37,7 @@ public class ShortUrlApplication {
       }
     }
     Windward windward = Windward.setup(port);
-    windward.get("/url", () -> "Hello!");
+    Routers.setupRouter(windward);
     windward.run();
   }
 }
