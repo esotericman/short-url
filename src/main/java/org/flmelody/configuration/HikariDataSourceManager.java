@@ -28,7 +28,7 @@ public class HikariDataSourceManager {
     try {
       reader = new PropertiesReader("datasource.properties");
     } catch (Exception e) {
-      throw new IllegalStateException();
+      throw new IllegalStateException(e);
     }
     HikariConfig config = new HikariConfig();
     config.setUsername(reader.getString("datasource.username"));

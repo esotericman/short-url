@@ -12,17 +12,17 @@
  * limitations under the License.
  */
 
-package org.flmelody.configuration;
-
-import lombok.Data;
+package org.flmelody.exception;
 
 /**
  * @author esotericman
  */
-@Data
-public class RedisProperties {
-  private String host;
-  private Integer port;
-  private String username;
-  private String password;
+public class BusinessException extends RuntimeException {
+  public BusinessException(String message) {
+    super(message);
+  }
+
+  public BusinessException(Throwable cause) {
+    super(cause);
+  }
 }

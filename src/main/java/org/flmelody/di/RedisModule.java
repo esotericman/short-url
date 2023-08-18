@@ -12,24 +12,21 @@
  * limitations under the License.
  */
 
-package org.flmelody.router;
+package org.flmelody.di;
 
-import org.flmelody.core.Windward;
-import org.flmelody.di.DaggerApplicationComponent;
-import org.flmelody.function.ShortUrlFunction;
+import dagger.Module;
+import dagger.Provides;
+import javax.inject.Singleton;
+import org.flmelody.configuration.RedisManager;
 
 /**
  * @author esotericman
  */
-public class Routers {
-
-  public static void setupRouter(Windward windward) {
-    ShortUrlFunction shortUrlFunction =
-        DaggerApplicationComponent.builder().build().buildShortUrlFunction();
-    windward
-        .group("/v1")
-        .get("/url", shortUrlFunction::generateShortUrl)
-        .get("/url/list", shortUrlFunction::queryAllUrl);
-    windward.get("/{url}", shortUrlFunction::accessShortUrl);
+@Module
+public class RedisModule {
+  @Provides
+  @Singleton
+  public RedisManager redisManager() {
+    return new RedisManager();
   }
 }

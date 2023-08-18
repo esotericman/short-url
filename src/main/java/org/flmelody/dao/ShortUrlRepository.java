@@ -12,24 +12,22 @@
  * limitations under the License.
  */
 
-package org.flmelody.router;
+package org.flmelody.dao;
 
-import org.flmelody.core.Windward;
-import org.flmelody.di.DaggerApplicationComponent;
-import org.flmelody.function.ShortUrlFunction;
+import java.util.List;
+import org.flmelody.model.ShortUrl;
+import org.jdbi.v3.sqlobject.config.RegisterConstructorMapper;
+import org.jdbi.v3.sqlobject.statement.SqlQuery;
+import org.jdbi.v3.sqlobject.statement.SqlUpdate;
 
 /**
  * @author esotericman
  */
-public class Routers {
+public interface ShortUrlRepository {
+  @SqlUpdate("INSERT INTO short_url (short_url, long_url) VALUES (?, ?)")
+  void insert(String shortUrl, String longUrl);
 
-  public static void setupRouter(Windward windward) {
-    ShortUrlFunction shortUrlFunction =
-        DaggerApplicationComponent.builder().build().buildShortUrlFunction();
-    windward
-        .group("/v1")
-        .get("/url", shortUrlFunction::generateShortUrl)
-        .get("/url/list", shortUrlFunction::queryAllUrl);
-    windward.get("/{url}", shortUrlFunction::accessShortUrl);
-  }
+  @SqlQuery("SELECT id, short_url,long_url FROM short_url")
+  @RegisterConstructorMapper(ShortUrl.class)
+  List<ShortUrl> selectAll();
 }

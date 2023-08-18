@@ -21,14 +21,17 @@
         <HikariCP.version>5.0.1</HikariCP.version>
         <mysql-connector-j.version>8.1.0</mysql-connector-j.version>
         <jedis.version>4.4.3</jedis.version>
-        <windward.version>1.4.2-RELEASE</windward.version>
+        <windward.version>1.4.3-RELEASE</windward.version>
         <lombok.version>1.18.28</lombok.version>
         <mainClass>org.flmelody.ShortUrlApplication</mainClass>
         <imageName>shortUrl</imageName>
         <jackson.version>2.15.2</jackson.version>
         <native.maven.plugin.version>0.9.24</native.maven.plugin.version>
         <maven-shade-plugin.version>3.5.0</maven-shade-plugin.version>
+        <dagger.version>2.47</dagger.version>
+        <!--        <resources.autodetection.enabled>true</resources.autodetection.enabled>-->
     </properties>
+
 
     <dependencies>
         <dependency>
@@ -81,6 +84,11 @@
             <artifactId>jdbi3-generator</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.google.dagger</groupId>
+            <artifactId>dagger</artifactId>
+            <version>${dagger.version}</version>
+        </dependency>
+        <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>${logback-classic.version}</version>
@@ -101,7 +109,8 @@
                             <execution>
                                 <id>build-native</id>
                                 <goals>
-                                    <goal>build</goal>
+                                    <goal>generateResourceConfig</goal>
+                                    <goal>compile-no-fork</goal>
                                 </goals>
                                 <phase>package</phase>
                             </execution>
@@ -116,7 +125,14 @@
                         <configuration>
                             <fallback>false</fallback>
                             <imageName>${imageName}</imageName>
+                            <!--                            <resourceIncludedPatterns>
+                                                            <resourceIncludedPattern>.*/datasource.properties$</resourceIncludedPattern>
+                                                            <resourceIncludedPattern>.*/redis.properties$</resourceIncludedPattern>
+                                                        </resourceIncludedPatterns>-->
                             <buildArgs>
+                                <arg>-H:IncludeResources='.*/datasource.properties$'</arg>
+                                <arg>-H:IncludeResources='.*/redis.properties$'</arg>
+                                <arg>-H:Log=registerResource:5</arg>
                                 <arg>--initialize-at-build-time=ch.qos.logback</arg>
                                 <arg>--initialize-at-build-time=org.slf4j.LoggerFactory</arg>
                             </buildArgs>
@@ -131,6 +147,20 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>com.google.dagger</groupId>
+                            <artifactId>dagger-compiler</artifactId>
+                            <version>2.16</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>${maven-shade-plugin.version}</version>
                 <executions>
@@ -140,6 +170,7 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <minimizeJar>true</minimizeJar>
                             <transformers>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">

@@ -12,18 +12,24 @@
  * limitations under the License.
  */
 
-package org.flmelody.configuration;
+package org.flmelody.di;
 
-
-import lombok.Data;
+import dagger.Module;
+import dagger.Provides;
+import javax.inject.Singleton;
+import org.flmelody.configuration.HikariDataSourceManager;
+import org.jdbi.v3.core.Jdbi;
+import org.jdbi.v3.sqlobject.SqlObjectPlugin;
 
 /**
  * @author esotericman
  */
-@Data
-public class HikariDataSourceProperties {
-  private String url;
-  private String username;
-  private String password;
-  private String driverName;
+@Module
+public class JdbiModule {
+  @Provides
+  @Singleton
+  public Jdbi jdbi() {
+    return Jdbi.create(HikariDataSourceManager.initDataSource())
+        .installPlugin(new SqlObjectPlugin());
+  }
 }

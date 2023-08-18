@@ -17,7 +17,6 @@ package org.flmelody.configuration;
 import org.flmelody.util.PropertiesReader;
 import redis.clients.jedis.JedisPool;
 
-
 /**
  * @author esotericman
  */
@@ -27,9 +26,9 @@ public class RedisManager {
   public RedisManager() {
     PropertiesReader reader;
     try {
-      reader = new PropertiesReader("datasource.properties");
+      reader = new PropertiesReader("redis.properties");
     } catch (Exception e) {
-      throw new IllegalStateException();
+      throw new IllegalStateException(e);
     }
     this.jedisPool =
         new JedisPool(
