@@ -5,7 +5,7 @@ Also,You will learn a different way to Java web application without Spring.
 First of all,We must do
 
 ```shell
- mvn clean compile
+mvn clean compile
 ```
 
 ## API Glance
@@ -14,12 +14,22 @@ First of all,We must do
 |---------------|--------|-------------|-----------------------------------|
 | /v1/url       | post   | originUrl   | generate short url for origin url |
 | /v1/url/list  | get    | -           | select all generated url          |
-| /s/{url}      | get    | -           | access short url                  |
+| /{url}        | get    | -           | access short url                  |
+
+build uber-jar
+
+```shell
+mvn -Pjar package
+```
 
 package binary file
 
 ```shell
-mvn -Pnative package
+mvn -Pnative -Dagent exec:exec@java-agent
+```
+
+```shell
+mvn -Pnative -Dagent package
 ```
 
 compress binary file
