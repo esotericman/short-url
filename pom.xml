@@ -77,10 +77,6 @@
         </dependency>
         <dependency>
             <groupId>org.jdbi</groupId>
-            <artifactId>jdbi3-sqlobject</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.jdbi</groupId>
             <artifactId>jdbi3-generator</artifactId>
         </dependency>
         <dependency>
@@ -217,9 +213,13 @@
                             <imageName>${imageName}</imageName>
                             <buildArgs>
                                 <arg>
+                                    -H:ResourceConfigurationFiles=${project.build.directory}/classes/resource-config.json
+                                </arg>
+                                <arg>
                                     -H:ReflectionConfigurationFiles=${project.build.directory}/classes/reflect-config.json
                                 </arg>
                                 <arg>-H:Log=registerResource:5</arg>
+                                <arg>--initialize-at-build-time=redis.clients.jedis.util.JedisMetaInfo</arg>
                                 <arg>--initialize-at-build-time=ch.qos.logback</arg>
                                 <arg>--initialize-at-build-time=org.slf4j.LoggerFactory</arg>
                             </buildArgs>
@@ -242,6 +242,11 @@
                             <groupId>com.google.dagger</groupId>
                             <artifactId>dagger-compiler</artifactId>
                             <version>2.16</version>
+                        </path>
+                        <path>
+                            <groupId>org.jdbi</groupId>
+                            <artifactId>jdbi3-generator</artifactId>
+                            <version>${jdbi3.version}</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>

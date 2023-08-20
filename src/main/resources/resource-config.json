@@ -1,0 +1,29 @@
+{
+  "resources": {
+    "includes": [
+      {
+        "pattern": "META-INF/services/java.sql.Driver"
+      },
+      {
+        "pattern": "META-INF/services/org.slf4j.spi.SLF4JServiceProvider"
+      },
+      {
+        "pattern": "logback.xml"
+      },
+      {
+        "pattern": "datasource.properties"
+      },
+      {
+        "pattern": "redis.properties"
+      }
+    ]
+  },
+  "bundles": [
+    {
+      "name": "com.mysql.cj.LocalizedErrorMessages",
+      "locales": [
+        "und"
+      ]
+    }
+  ]
+}
