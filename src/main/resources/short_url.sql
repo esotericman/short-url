@@ -1,3 +1,6 @@
+CREATE
+DATABASE `java` character set utf8mb4 collate utf8mb4_unicode_ci;
+
 CREATE TABLE `short_url`
 (
     `id`        int                                     NOT NULL AUTO_INCREMENT,

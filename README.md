@@ -9,13 +9,15 @@ First of all,We must do
 mvn clean compile
 ```
 
+Then init database with short_url.sql
+
 ## API Glance
 
 | relative path | method | querystring | description                       |
 |---------------|--------|-------------|-----------------------------------|
-| /v1/url       | post   | originUrl   | generate short url for origin url |
-| /v1/url/list  | get    | -           | select all generated url          |
-| /{url}        | get    | -           | access short url                  |
+| v1/url        | post   | originUrl   | generate short url for origin url |
+| v1/url/list   | get    | -           | select all generated url          |
+| {url}         | get    | -           | access short url                  |
 
 build uber-jar
 
