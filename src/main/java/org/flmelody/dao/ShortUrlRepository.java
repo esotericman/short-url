@@ -16,6 +16,7 @@ package org.flmelody.dao;
 
 import java.util.List;
 import org.flmelody.model.ShortUrl;
+import org.jdbi.v3.sqlobject.GenerateSqlObject;
 import org.jdbi.v3.sqlobject.config.RegisterConstructorMapper;
 import org.jdbi.v3.sqlobject.statement.SqlQuery;
 import org.jdbi.v3.sqlobject.statement.SqlUpdate;
@@ -23,6 +24,7 @@ import org.jdbi.v3.sqlobject.statement.SqlUpdate;
 /**
  * @author esotericman
  */
+@GenerateSqlObject
 public interface ShortUrlRepository {
   @SqlUpdate("INSERT INTO short_url (short_url, long_url) VALUES (?, ?)")
   void insert(String shortUrl, String longUrl);

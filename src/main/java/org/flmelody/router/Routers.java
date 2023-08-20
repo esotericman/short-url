@@ -28,7 +28,7 @@ public class Routers {
         DaggerApplicationComponent.builder().build().buildShortUrlFunction();
     windward
         .group("/v1")
-        .post("/url", shortUrlFunction::generateShortUrl)
+        .get("/url", shortUrlFunction::generateShortUrl)
         .get("/url/list", shortUrlFunction::queryAllUrl);
     windward.get("/{url}", shortUrlFunction::accessShortUrl);
   }
