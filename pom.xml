@@ -21,11 +21,11 @@
         <HikariCP.version>5.0.1</HikariCP.version>
         <mysql-connector-j.version>8.1.0</mysql-connector-j.version>
         <jedis.version>4.4.3</jedis.version>
-        <windward.version>1.4.3-RELEASE</windward.version>
+        <windward.version>1.4.4-RELEASE</windward.version>
         <lombok.version>1.18.28</lombok.version>
         <mainClass>org.flmelody.ShortUrlApplication</mainClass>
         <imageName>shortUrl</imageName>
-        <jackson.version>2.15.2</jackson.version>
+        <jackson.version>2.15.3</jackson.version>
         <native.maven.plugin.version>0.9.24</native.maven.plugin.version>
         <maven-shade-plugin.version>3.5.0</maven-shade-plugin.version>
         <dagger.version>2.47</dagger.version>
