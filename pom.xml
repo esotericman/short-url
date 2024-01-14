@@ -27,7 +27,7 @@
         <imageName>shortUrl</imageName>
         <jackson.version>2.15.3</jackson.version>
         <native.maven.plugin.version>0.9.24</native.maven.plugin.version>
-        <maven-shade-plugin.version>3.5.0</maven-shade-plugin.version>
+        <maven-shade-plugin.version>3.5.1</maven-shade-plugin.version>
         <dagger.version>2.47</dagger.version>
         <!--        <resources.autodetection.enabled>true</resources.autodetection.enabled>-->
     </properties>
