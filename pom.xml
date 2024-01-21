@@ -18,7 +18,7 @@
         <jdbi3.version>3.43.0</jdbi3.version>
         <slf4j.version>2.0.11</slf4j.version>
         <logback-classic.version>1.4.12</logback-classic.version>
-        <HikariCP.version>5.0.1</HikariCP.version>
+        <HikariCP.version>5.1.0</HikariCP.version>
         <mysql-connector-j.version>8.2.0</mysql-connector-j.version>
         <jedis.version>4.4.6</jedis.version>
         <windward.version>1.4.6-RELEASE</windward.version>
