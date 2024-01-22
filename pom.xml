@@ -19,7 +19,7 @@
         <slf4j.version>2.0.11</slf4j.version>
         <logback-classic.version>1.4.12</logback-classic.version>
         <HikariCP.version>5.1.0</HikariCP.version>
-        <mysql-connector-j.version>8.2.0</mysql-connector-j.version>
+        <mysql-connector-j.version>8.3.0</mysql-connector-j.version>
         <jedis.version>4.4.6</jedis.version>
         <windward.version>1.4.6-RELEASE</windward.version>
         <lombok.version>1.18.28</lombok.version>
