@@ -1,9 +1,9 @@
 # short-url
 
 ![short-url.png](short-url.png)
-In this project,you will know what really does windward can do,And find out how to implement a short url service,
-Also,You will learn a different way to Java web application without Spring.
-First of all,We must do
+In this project, you will know what really does windward can do, and find out how to implement a short url service.
+Also , You will learn a different way to Java web application without Spring.
+First of all, We must do
 
 ```shell
 mvn clean compile
