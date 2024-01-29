@@ -21,7 +21,7 @@
         <HikariCP.version>5.1.0</HikariCP.version>
         <mysql-connector-j.version>8.2.0</mysql-connector-j.version>
         <jedis.version>4.4.6</jedis.version>
-        <windward.version>1.4.6-RELEASE</windward.version>
+        <windward.version>1.4.8.RELEASE</windward.version>
         <lombok.version>1.18.28</lombok.version>
         <mainClass>org.flmelody.ShortUrlApplication</mainClass>
         <imageName>shortUrl</imageName>
