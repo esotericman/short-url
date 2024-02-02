@@ -36,11 +36,11 @@ public class GlobalErrorHandler implements ExceptionHandler {
       code = HttpStatus.INTERNAL_SERVER_ERROR.value();
     }
     String response = """
-            {\
-            "msg": %s\
-            }\
+            {
+            "msg": "%s"
+            }
             """;
-    windwardContext.writeJson(code, String.format(response, message));
+    windwardContext.writeString(code, String.format(response, message));
   }
 
   @Override
