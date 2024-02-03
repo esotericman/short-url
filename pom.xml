@@ -22,7 +22,7 @@
         <mysql-connector-j.version>8.2.0</mysql-connector-j.version>
         <jedis.version>4.4.6</jedis.version>
         <windward.version>1.4.9-RELEASE</windward.version>
-        <lombok.version>1.18.28</lombok.version>
+        <lombok.version>1.18.30</lombok.version>
         <mainClass>org.flmelody.ShortUrlApplication</mainClass>
         <imageName>shortUrl</imageName>
         <jackson.version>2.16.1</jackson.version>
