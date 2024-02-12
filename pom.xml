@@ -15,7 +15,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.jupiter.version>5.8.1</junit.jupiter.version>
-        <jdbi3.version>3.43.0</jdbi3.version>
+        <jdbi3.version>3.44.1</jdbi3.version>
         <slf4j.version>2.0.11</slf4j.version>
         <logback-classic.version>1.4.14</logback-classic.version>
         <HikariCP.version>5.1.0</HikariCP.version>
