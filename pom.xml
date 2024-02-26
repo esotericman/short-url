@@ -17,7 +17,7 @@
         <junit.jupiter.version>5.8.1</junit.jupiter.version>
         <jdbi3.version>3.45.0</jdbi3.version>
         <slf4j.version>2.0.12</slf4j.version>
-        <logback-classic.version>1.4.14</logback-classic.version>
+        <logback-classic.version>1.5.0</logback-classic.version>
         <HikariCP.version>5.1.0</HikariCP.version>
         <mysql-connector-j.version>8.3.0</mysql-connector-j.version>
         <jedis.version>5.1.0</jedis.version>
