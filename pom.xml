@@ -20,7 +20,7 @@
         <logback-classic.version>1.5.0</logback-classic.version>
         <HikariCP.version>5.1.0</HikariCP.version>
         <mysql-connector-j.version>8.3.0</mysql-connector-j.version>
-        <jedis.version>5.1.1</jedis.version>
+        <jedis.version>5.1.2</jedis.version>
         <windward.version>1.4.9-RELEASE</windward.version>
         <lombok.version>1.18.30</lombok.version>
         <mainClass>org.flmelody.ShortUrlApplication</mainClass>
