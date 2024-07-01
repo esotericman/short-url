@@ -14,7 +14,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <maven.compiler.source>17</maven.compiler.source>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <junit.jupiter.version>5.8.1</junit.jupiter.version>
+        <junit.jupiter.version>5.10.3</junit.jupiter.version>
         <jdbi3.version>3.45.1</jdbi3.version>
         <slf4j.version>2.0.12</slf4j.version>
         <logback-classic.version>1.5.3</logback-classic.version>
